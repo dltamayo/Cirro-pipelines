@@ -50,6 +50,11 @@
           "exampleName": "star_salmon/sampleName.markdup.sorted.bam",
           "description": "sampleName.markdup.sorted.bam",
           "sampleMatchingPattern": "(?P<alignmentTool>[\\S ]*)/(?P<sampleName>[\\S ]*)\\.markdup\\.sorted\\.bam"
+        },
+        {
+          "exampleName": "star_salmon/sampleName.sorted.bam",
+          "description": "sampleName.sorted.bam (Parabricks, duplicates marked during alignment)",
+          "sampleMatchingPattern": "(?P<alignmentTool>[\\S ]*)/(?P<sampleName>(?![\\S ]*\\.markdup\\.sorted\\.bam)[\\S ]*)\\.sorted\\.bam"
         }
       ]
     },
@@ -61,6 +66,11 @@
           "exampleName": "star_salmon/sampleName.markdup.sorted.bam.bai",
           "description": "sampleName.markdup.sorted.bam.bai",
           "sampleMatchingPattern": "(?P<alignmentTool>[\\S ]*)/(?P<sampleName>[\\S ]*)\\.markdup\\.sorted\\.bam\\.bai"
+        },
+        {
+          "exampleName": "star_salmon/sampleName.sorted.bam.bai",
+          "description": "sampleName.sorted.bam.bai (Parabricks, duplicates marked during alignment)",
+          "sampleMatchingPattern": "(?P<alignmentTool>[\\S ]*)/(?P<sampleName>(?![\\S ]*\\.markdup\\.sorted\\.bam)[\\S ]*)\\.sorted\\.bam\\.bai"
         }
       ]
     }

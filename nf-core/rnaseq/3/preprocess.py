@@ -155,7 +155,9 @@ if __name__ == "__main__":
     # Per-aligner form params to clean up — these are never passed to the pipeline directly
     aligner_specific_params = [
         "star_salmon_genome_source", "star_salmon_genome", "star_salmon_index", "star_salmon_salmon_index",
+        "star_salmon_use_parabricks_star",
         "star_rsem_genome_source", "star_rsem_genome", "star_rsem_star_index",
+        "star_rsem_use_parabricks_star",
         "hisat2_genome_source", "hisat2_genome",
         "bowtie2_salmon_genome_source", "bowtie2_salmon_genome", "bowtie2_salmon_salmon_index",
     ]
@@ -164,6 +166,15 @@ if __name__ == "__main__":
 
     aligner = ds.params.get("aligner", "")
     genome_source = ds.params.get(f"{aligner}_genome_source")
+
+    # Parabricks cannot use iGenomes (its bundled STAR rejects those indices), so the
+    # toggle is only honored on the Custom Genome branch
+    if genome_source == "dataset" and ds.params.get(f"{aligner}_use_parabricks_star"):
+        ds.logger.info("Enabling Parabricks GPU-accelerated STAR")
+        ds.add_param("use_parabricks_star", True)
+        extra_args = ds.params.get("extra_star_align_args") or ""
+        if "--low-memory" not in extra_args:
+            ds.add_param("extra_star_align_args", f"{extra_args} --low-memory".strip(), overwrite=True)
 
     # If the user selected a Cirro dataset as the genome source, remove
     # igenomes_base and resolve fasta/gtf from the index dataset

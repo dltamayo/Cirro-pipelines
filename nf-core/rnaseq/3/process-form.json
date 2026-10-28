@@ -118,6 +118,12 @@
                                         "description": "Pre-built Salmon genome index dataset"
                                       }
                                     }
+                                  },
+                                  "use_parabricks_star": {
+                                    "type": "boolean",
+                                    "title": "GPU-Accelerate STAR with NVIDIA Parabricks",
+                                    "default": false,
+                                    "description": "Align with NVIDIA Parabricks rna_fq2bam instead of CPU STAR; duplicates are marked during alignment. Requires workflow version 3.27.0 or later and a compute environment with GPU instances (g5 family or similar, 4 GPUs per task) and maxvCpus of at least 96. The pre-built STAR index above is not used by Parabricks; the pipeline rebuilds an index from its genome FASTA and GTF with a Parabricks-compatible STAR version (2.7.2a)."
                                   }
                                 }
                               }
@@ -204,6 +210,12 @@
                                         "description": "Pre-built RSEM genome index dataset"
                                       }
                                     }
+                                  },
+                                  "use_parabricks_star": {
+                                    "type": "boolean",
+                                    "title": "GPU-Accelerate STAR with NVIDIA Parabricks",
+                                    "default": false,
+                                    "description": "Align with NVIDIA Parabricks rna_fq2bam instead of CPU STAR; duplicates are marked during alignment. Requires workflow version 3.27.0 or later and a compute environment with GPU instances (g5 family or similar, 4 GPUs per task) and maxvCpus of at least 96. The pre-built STAR index above is not used by Parabricks; the pipeline rebuilds an index from its genome FASTA and GTF with a Parabricks-compatible STAR version (2.7.2a)."
                                   }
                                 }
                               }
