@@ -172,9 +172,6 @@ if __name__ == "__main__":
     if genome_source == "dataset" and ds.params.get(f"{aligner}_use_parabricks_star"):
         ds.logger.info("Enabling Parabricks GPU-accelerated STAR")
         ds.add_param("use_parabricks_star", True)
-        extra_args = ds.params.get("extra_star_align_args") or ""
-        if "--low-memory" not in extra_args:
-            ds.add_param("extra_star_align_args", f"{extra_args} --low-memory".strip(), overwrite=True)
 
     # If the user selected a Cirro dataset as the genome source, remove
     # igenomes_base and resolve fasta/gtf from the index dataset
