@@ -14,8 +14,8 @@
   "code": {
     "repository": "GITHUBPUBLIC",
     "script": "main.nf",
-    "uri": "nf-core/rnaseq",
-    "version": "User Defined"
+    "uri": "dltamayo/rnaseq",
+    "version": "feature/parabricks-star-index-and-qc"
   },
   "allowMultipleSources": true,
   "usesSampleSheet": true,

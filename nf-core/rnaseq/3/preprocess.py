@@ -119,7 +119,7 @@ def read_json(path):
 def filter_params_by_schema(ds: PreprocessDataset):
     """Remove any params not present in the nf-core/rnaseq nextflow_schema.json."""
 
-    version = ds.params.get("workflow_version", "3.23.0")
+    version = ds.params.get("workflow_version", "3.27.0")
     url = f"https://raw.githubusercontent.com/nf-core/rnaseq/{version}/nextflow_schema.json"
 
     ds.logger.info(f"Fetching nextflow_schema.json for nf-core/rnaseq {version}")

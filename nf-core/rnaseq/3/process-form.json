@@ -5,12 +5,6 @@
     "type": "object",
     "required": [],
     "properties": {
-      "workflow_version": {
-        "type": "string",
-        "title": "Workflow Version",
-        "description": "Select the specific version of nf-core/rnaseq to use",
-        "default": "3.23.0"
-      },
       "aligner_and_reference_genome": {
         "title": "Aligner & Reference Genome",
         "type": "object",
